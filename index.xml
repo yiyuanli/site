@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>YIYUAN LI</title>
+    <link>http://yiyuanli.github.io/site/</link>
+    <description>Recent content on YIYUAN LI</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 15 Oct 2017 10:30:16 +0000</lastBuildDate>
+    
+	<atom:link href="http://yiyuanli.github.io/site/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>wordpress转hugo，并托管在GitHub上</title>
+      <link>http://yiyuanli.github.io/site/posts/wordpress-to-hugo/</link>
+      <pubDate>Sun, 15 Oct 2017 10:30:16 +0000</pubDate>
+      
+      <guid>http://yiyuanli.github.io/site/posts/wordpress-to-hugo/</guid>
+      <description>在转之前我发现网上很少有介绍word press转hugo的中文文章，大多数都是 word press转hexokinase或者Jekyll。 但是由上篇文章总结来看hugo目前是 最适合静态网页生成器，故总结在此作为大家参考。
+wordpress动态网页转hugo静态网页并托管在GitHub上一共可以分成三步：
+ 在本地建立hugo site；
+ 把wordpress内容转为markdown格式并放入本地hugo site中；
+ 把已经放好转出内容的hugo site 部署到GitHub上。  每步之间几乎是相互独立，互不影响。每个步骤都可以单独完成，如果想把wordpress 转hexo或者Jekyll，或者要把hugo静态网页托管在GitHub上，都可以参考此篇文章。
+下面开始正文：  在本地建立一个hugo site，参见上篇博客（基于hugo的静态博客建立及部署在GitHub上） 这一步是花费了我最长时间的一部，因为有两个wordpress转出工具——wordpress-to-hugo-exporter和Exitwp，两个我都有尝试，但是中间都遇到了一些问题，最终我用Exitwp解决了wordpress转出问题，下面就是详细过程.
+2.1. 导出word press文件：需要在wordpress/admin界面Tools-Export中把自己本来wordpress里的所有内容导出为xml文件。
+2.2. 我们用Exitwp这个工具把xml文件转为markdown文件。下载Exitwp，然后把所有的xml文件都放在解压了的Exitwp文件夹里的word press-xml目录下；
+2.3. 进行下部之前，我们需要安装五个software，分别是
+ python 2.7，记得安装完之后要在环境变量-path中添加python，只有添加path之后才可以在cmd中运行python命令，否则后面几步运行会报错； html2text: 把html文件转为markdown文件（python编写）。参照指示，点击download之后直接把code拷贝下来建在一个新txt文档里并命名为html2text.py就行，这里是我建好的.py文件；
+ PyYAML：Reading configuration files and writing YAML headers（python编写）（这里是英文解释，有点难翻译，也不太懂什么意思）。下载安装包，然后直接在命令符中输入
+python setup.py install  beautiful soup：运行和下载wordpress posts 中的图片（也是python编写），下载4.6.0版本，然后在cmd中输入
+pip install beautifulsoup4  运行，然后beautifulsoup4.6.0就安装在python27\lib\site-packages目录下了；
+ xmllint：xmllint是一个处理及验证xml的工。Linux下只要安装libxml2就可以使用了，但是在Windows下就要麻烦很多。这一步也是很烦人的一部，因为官网上的指示一点都不清楚，可能针对linux系统比较详细吧，反正Windows系统非常不详细。所以我搜了很久才找到正确安装方法（可以参考这篇文章来安装xmllint. 首先找到xmllint windows下载包，下载同一版本的libxml2，libxslt，iconv，zlib这四个zipfiles，解压，然后打开这四个文件bin目录，把四个bin文件里的东西全部复制到一个新的命名为bin的文件夹里，这个新的bin文件夹放在C盘下，然后将这个bin添加进环境变量path中。这样，xmllint就算是安装好了。
+  2.4.在安装好了所有上述东西之后，在cmd中就最终可以输入$ xmllint &amp;hellip;xml 命令了。我的xml文件是yiyuanli.wordpress.2017-10-04.xml,所以我就直接输入$ xmllint yiyuanli.</description>
+    </item>
+    
+    <item>
+      <title>基于hugo的静态博客建立及部署在GitHub上</title>
+      <link>http://yiyuanli.github.io/site/posts/hugo-website-build/</link>
+      <pubDate>Sat, 29 Apr 2017 10:30:16 +0000</pubDate>
+      
+      <guid>http://yiyuanli.github.io/site/posts/hugo-website-build/</guid>
+      <description>开始之前： （这是一个非程序猿版本的hugo静态博客建立过程记录，我会尽量把每个步骤都认认真真记录下来）。
+作为个人博客网站，为什么选择用静态博客呢？以及为什么选择hugo作为静态博客生成器呢？可以参考如下文章：
+11个最流行的静态(博客)网站生成工具
+开源静态博客生成器——jekyll、hexo、hugo怎么选？
+简单概括起来就是：1. 静态博客访问速度快，可以完全托管在GitHub上，不用另外花钱买主机；2. hugo生成静态博客速度非常之快，又比Jekyll构建简单许多（对于我们这些非程序猿们）。
+过程记录： 敲定hugo之后，接下来就是如何用hugo建立博客的问题了：
+ 首先简单环境介绍：
+windows 10
+hugo_0.20.6_windows-64bit.zip
+ git的一些简单操作命令的含义见： Git远程操作详解
+ 安装hugo，下载地址：https://github.com/spf13/hugo/releases
+在本地磁盘上建立文件目录（路径随意，例如）:F:\github\hugo\bin 把下载下来的hugo.exe二进制程序放进建立的bin文件夹中。 设置系统环境变量：&amp;rdquo;我的电脑右键——属性——高级系统设置——高级——环境变量&amp;rdquo;, 选中PATH变量，&amp;rdquo;编辑——新建——F:\github\hugo\bin——确定&amp;rdquo;. 这样PATH环境变量就设置好 了。然后&amp;rdquo;win+R&amp;rdquo;，输入cmd回车，进入command prompt，输入
+hugo version  如果有版本提示，即表示安装成功。
+ 接下来hugo官方网站上有非常详细的步骤及视频教学： Hugo Quickstart Guide。 照着一步一步操作。或者另外两个hugo website建立的介绍：
+http://lucumt.info/posts/create-website-with-hugo/
+https://kknews.cc/tech/859ebkq.html
+  一些补充和自己的理解:  修改baseURL可以直接在cmd命令行中实施，输入
+hugo --theme=hyde --baseUrl=&amp;quot;http://yiyuanli.github.io/blog&amp;quot;  我在实施的过程中发现一个问题，就是在最后面regenerate site的时候，cd .. 此时应该在blog根目录下：F:\github\hugo\blog. 接着在cmd中输入
+hugo --theme=hugo_theme_robust  来重新生成静态网页。但接下来应该进入到f:\github\hugo\blog\public目录下
+git add --all git commit -m &amp;quot;some changes&amp;quot; git push origin gh-pages  (-f表示 -force，见Git远程操作详解）</description>
+    </item>
+    
+    <item>
+      <title>CV sample in LaTeX</title>
+      <link>http://yiyuanli.github.io/site/posts/cv-sample-in-latex/</link>
+      <pubDate>Fri, 13 Jan 2017 07:55:21 +0000</pubDate>
+      
+      <guid>http://yiyuanli.github.io/site/posts/cv-sample-in-latex/</guid>
+      <description>Here is my own C.V. code in LaTeX. In fact, it is modified based on the version of Jason Blevins‘ sample. I have made a lot of changes and improvements to fit into my requirements. One of the most important advantages for internet is to share, thus we can improve ourselves by learning from others. Your suggestions for this C.V. sample is greatly welcomed.
+我用LaTeX写的C.V.，是在Jason Blevins的sample基础上改进的，还是很多地方被我改过了的。
+Download:
+[pdf file]()
+[tex file]()</description>
+    </item>
+    
+    <item>
+      <title>Personal  Websites  Recommendation</title>
+      <link>http://yiyuanli.github.io/site/posts/personal-websites-recommendation/</link>
+      <pubDate>Wed, 30 Nov 2016 13:27:04 +0000</pubDate>
+      
+      <guid>http://yiyuanli.github.io/site/posts/personal-websites-recommendation/</guid>
+      <description>Every now and then I search for some questions, there are always some awesome blogs which provide me with some great answers. Moreover, the blog owners are some brilliant people form different areas. These websites not only help me a lot on my study but also broaden my mind.
+ http://www.jdcui.com/
+I found this website when I searched for a problem about 3-D frame structure. It impressed me a lot that I realized being a researcher can be such cool.</description>
+    </item>
+    
+    <item>
+      <title>Linearity and Nonlinearity</title>
+      <link>http://yiyuanli.github.io/site/posts/linearity-and-nonlinearity/</link>
+      <pubDate>Wed, 30 Nov 2016 12:42:56 +0000</pubDate>
+      
+      <guid>http://yiyuanli.github.io/site/posts/linearity-and-nonlinearity/</guid>
+      <description>Linear function (refers to two notions):
+ In calculus: linear function refers to the polynomial function with no more than degree of one. In algebra: linear function refers to a linear mapping: V → W with any two vectors x and y (belong to V) satisfying the following conditions:  Superposition: f (x+y) = f (x) + f (y)
+ Homogeneity: f (αx)= αf(x)   f(x)=2x+3 is a linear function in calculus.</description>
+    </item>
+    
+    <item>
+      <title>Asymptote Test - Drawing a Shearing Building</title>
+      <link>http://yiyuanli.github.io/site/posts/asymptote-test-drawing-a-shearing-building/</link>
+      <pubDate>Wed, 23 Nov 2016 09:36:46 +0000</pubDate>
+      
+      <guid>http://yiyuanli.github.io/site/posts/asymptote-test-drawing-a-shearing-building/</guid>
+      <description>In order to test Asymptote, an 18-story shear building is created. The code and the graph it generated are shown below.
+size(200); int n=18; for(int i=0;i&amp;lt;n;++i){ draw((0,(i-1))--(0,(i-0.2))--(4,(i-0.2))--(4,(i-1)),black+0.2mm); filldraw((0,(i-0.2))--(0,i)--(4,i)--(4,(i-0.2))--cycle, fillpen=grey,drawpen=black+0.2mm); } draw((-2,-1)--(6,-1),black+0.2mm); import patterns; add(&amp;quot;hatch&amp;quot;,hatch(2.5m,NW,black+0.15mm)); fill((-2,-1.5)--(-2,-1)--(6,-1)--(6,-1.5)--cycle,pattern(&amp;quot;hatch&amp;quot;));  Run the program, then the shear building graph is shown below:</description>
+    </item>
+    
+    <item>
+      <title>Asymptote Installation</title>
+      <link>http://yiyuanli.github.io/site/posts/asymptote-install/</link>
+      <pubDate>Wed, 23 Nov 2016 03:09:13 +0000</pubDate>
+      
+      <guid>http://yiyuanli.github.io/site/posts/asymptote-install/</guid>
+      <description>Computer condition: Windows 10
+Installation package:
+Asymptote (download); ghostscript (download); gsview (download); Python (download); Imagemagick (download).
+ Install Asymptote (compulsory):
+asymptote-xx-setup.exe (e.g. asymptote-2.38-setup.exe).
+Note: it has to be added to the environmental path. (My computer – Properties – system – advanced system settings – in “Advanced” tab, click “Environment Variables” – in “System variables”, choose “Path” section then “Edit” – Add the path where you install the Asymptote) ( e.g. C:\Program Files (x86)\Asymptote) Install ghostscript (compulsory):</description>
+    </item>
+    
+    <item>
+      <title>Arts</title>
+      <link>http://yiyuanli.github.io/site/arts/</link>
+      <pubDate>Tue, 22 Nov 2016 06:25:21 +0000</pubDate>
+      
+      <guid>http://yiyuanli.github.io/site/arts/</guid>
+      <description>Photographs            
+hr
+Paintings</description>
+    </item>
+    
+    <item>
+      <title>Academics</title>
+      <link>http://yiyuanli.github.io/site/academics/</link>
+      <pubDate>Tue, 22 Nov 2016 06:24:23 +0000</pubDate>
+      
+      <guid>http://yiyuanli.github.io/site/academics/</guid>
+      <description>My current research focuses on: Direct model updating method using incomplete modal measurements based on system control theory.
+After applying this new method, the updated Finite Element (FE) model can reproduce the measured modal frequencies exactly without disturbing the unmeasured modal frequencies.
+Academics
+At first, a 960 degree-of-freedom (DOF) FE model was used to illustrate the efficiency of this method. The following figures are the first 10 mode shapes of the updated FE model.</description>
+    </item>
+    
+    <item>
+      <title>About Me</title>
+      <link>http://yiyuanli.github.io/site/aboutme/</link>
+      <pubDate>Sun, 20 Nov 2016 01:54:31 +0000</pubDate>
+      
+      <guid>http://yiyuanli.github.io/site/aboutme/</guid>
+      <description>How happy is the blameless vestal’s lot!
+The world forgetting, by the world forgot.
+Eternal sunshine of the spotless mind!
+Each pray’r accepted, and each wish resign’d.
+—Alexander Pope
+ After graduated from high school, I chose Applied Chemistry as my major in South China Agricultural University by accident. However, when I actually had the chance to get to know chemistry at university, I realized it was not what I want at all.</description>
+    </item>
+    
+    <item>
+      <title>Home</title>
+      <link>http://yiyuanli.github.io/site/home/</link>
+      <pubDate>Sat, 19 Nov 2016 09:54:08 +0000</pubDate>
+      
+      <guid>http://yiyuanli.github.io/site/home/</guid>
+      <description>Welcome to Yi-Yuan’s Website!
+Home Home Home Home Home My name is Yi-Yuan Li, a Civil Engineering M.Sc student at University of Macau, specializing in Structural Engineering. I am working in Dynamics &amp;amp; Monitoring laboratory under the supervision of Prof. Ka-Veng Yuen. My study interests: Structural Dynamics; Model Updating; Vibration Control; Structural Health Monitoring; System Identification; Modal Analysis; Earthquake Engineering. I’m ready to learn more about them any time! My skills: Matlab; Fortran My Curriculum Vitae My Statement of Interest</description>
+    </item>
+    
+    <item>
+      <title>start</title>
+      <link>http://yiyuanli.github.io/site/home-2/home-2/</link>
+      <pubDate>Fri, 18 Nov 2016 05:51:48 +0000</pubDate>
+      
+      <guid>http://yiyuanli.github.io/site/home-2/home-2/</guid>
+      <description>There is no limits between science and art</description>
+    </item>
+    
+  </channel>
+</rss>

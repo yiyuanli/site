@@ -1,0 +1,793 @@
+
+<!DOCTYPE html>
+<html lang="en-us">
+
+    <head>
+
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+        <meta property="og:title" content=" 基于hugo的静态博客建立及部署在GitHub上 &middot;  YIYUAN LI" />
+        <meta property="og:site_name" content="YIYUAN LI" />
+        <meta property="og:url" content="http://yiyuanli.github.io/site/posts/hugo-website-build/" />
+
+    
+        <meta property="og:type" content="article" />
+        <meta property="og:article:published_time" content="2017-04-29T10:30:16Z" />
+        
+
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:site" content="@" />
+        <meta name="twitter:creator" content="@" />
+        <meta name="twitter:title" content="基于hugo的静态博客建立及部署在GitHub上" />
+        <meta name="twitter:description" content="" />
+        <meta name="twitter:url" content="http://yiyuanli.github.io/site/posts/hugo-website-build/" />
+    
+
+        <title> 基于hugo的静态博客建立及部署在GitHub上 &middot;  YIYUAN LI</title>
+
+    
+        <meta name="description" content="" />
+    
+        
+        <meta name="p:domain_verify" content="fc173d84e3a4de948ed4bda2908afd3e"/>
+        <meta name="HandheldFriendly" content="True" />
+        <meta name="MobileOptimized" content="320" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        
+          
+
+    
+        <link href="http://yiyuanli.github.io/siteindex.xml" rel="alternate" type="application/rss+xml" title="YIYUAN LI" />
+    
+
+    
+        <link rel="canonical" href="http://yiyuanli.github.io/site/posts/hugo-website-build/" />
+
+    
+    <script type="application/ld+json">
+    { 
+        "@context": "http://schema.org",
+        "@type": "Article",
+        "headline": "基于hugo的静态博客建立及部署在GitHub上",
+        "author": {
+            "@type": "Person",
+            "name": "http://profiles.google.com/?rel=author"
+        },
+        "datePublished": "2017-04-29",
+        "description": "",
+        "wordCount": 82
+    }
+    </script>
+    
+    
+    <style>
+*
+{
+	padding: 0;
+	margin: 0;
+}
+body,html
+{
+	font-size: 1em;
+	line-height: 150%;
+    font-family:"Open Sans",sans-serif;
+    font-weight:300;
+	color:#161616;
+	background-color: #ffffff;
+}
+html
+{
+	height: 110%;
+}
+body
+{
+	padding: 4em 5em 1em 21em; !above right bottom left;
+}
+header
+{
+	border-right:1px #eee solid;
+	padding: 2em;
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 12em;
+	background-color: #161616;
+	color: #9b9b9b;
+}
+#content
+{
+	display: block;
+	width: 100%;
+}
+footer
+{
+	padding: 1em 0 2.5em;
+	font-size: .8em;
+	line-height: 110%;
+	color: #333333;
+}
+article
+{
+	border-bottom: .1em #eaeaea solid;
+	padding-bottom: 1.7em;
+	max-width: 56em;
+}
+h4,h5,h6,hr,p
+{
+	margin-top: 1em;
+	margin-bottom: 1em;
+}
+h1,h2,h3,h4,h5,h6
+{
+	font-family:"Bree Serif",serif;
+    font-weight:400!important
+}
+
+h1                   
+{
+	font-size: 2.5em;
+	line-height: 110%;
+	margin-top: 1em;
+	margin-bottom: 1em;
+}
+h2
+{
+	font-size: 1.9em;
+	line-height: 110%;
+	margin-top: .7em;
+	margin-bottom: .7em;
+}
+h3
+{
+	font-size: 1.5em;
+	line-height: 110%;
+	margin-top: 0.5em;
+	margin-bottom: .5em;
+}
+h4
+{
+	font-size: 1.3em;
+}
+h5
+{
+	font-size: 1.2em;
+}
+h6
+{
+	font-size: 0.9em;
+	line-height: 110%;
+	margin-top: 0.2em;
+	margin-left:0em;
+}
+iframe,img
+{
+	max-width: 100%;
+}
+a
+{
+	font-weight: 700;
+	text-decoration:none;
+	color: #161616;
+}
+a:hover
+{
+	text-decoration: underline;
+}
+h1 a,h2 a,h3 a,h4 a,h5 a,h6 a
+{
+	font-weight: 400;
+}
+strong
+{
+	font-weight: 700;
+}
+blockquote
+{
+	border-left: .4em solid #bdc3c7;
+	padding-left: 1.2em;
+	！font-size: 1.3em;
+}
+hr
+{
+	border: 0;
+	height: 1.5px;
+	background: #161616;
+}
+ol,ul
+{
+	margin-left: 3em;
+}
+code                    
+{
+	font-size: 1.2em;
+	!background: #f0f0f0;
+}
+pre                     
+{
+	font-size: 1em;
+	line-height: 130%;
+	!background: #f0f0f0;
+	padding: 1em;
+	word-break: break-all;
+	word-wrap: break-word;
+	white-space: pre;
+	white-space: -moz-pre-wrap;
+	white-space: pre-wrap;
+} 
+input
+{
+	font-size: 1em;
+	padding: .3em;
+}
+header h1      
+{
+	margin-top: 0.5em;
+	margin-bottom: 0.2em;
+}
+header h3
+{
+	font-size: 1.4em;
+	line-height: 1.1em;
+	margin-top: 1em;
+	margin-bottom: .1em;
+}
+header a
+{
+	color: #f4f4f4;
+}
+header a:hover
+{
+	color: #309ff2;
+    text-decoration: none;
+}
+header #logo img
+{
+	width: 9em;
+	height: 9em;
+	border-radius: 4.5em;
+	-moz-border-radius: 4.5em;
+	-webkit-border-radius: 4.5em;
+	border: 0;
+}
+#follow-icons
+{
+	font-size: .6em;
+	margin-top: 2em;
+	margin-bottom: 1.5em;
+}
+#follow-icons a
+{
+	color: #ccc;
+	margin-right: 0.6em;
+}
+#follow-icons a:hover
+{
+	color: #309ff2;
+}
+#follow-icons span
+{
+	vertical-align: top;
+	margin-left: -.15em;
+	margin-right: -.15em;
+}
+#follow-icons span .fa-stack-1x
+{
+	font-size: 1.05em;
+	line-height: 100%;
+}
+header h6
+{
+	margin-top: 2em;
+	line-height: 0.7em;
+}
+article span.post-stamp
+{
+	color: #888;
+}
+h1.post-title
+{
+	margin-top: 0.2em;
+	margin-bottom: .5em;
+}
+h2.post-title
+{
+	margin-top: .35em;
+	margin-bottom: .6em;
+}
+h3.post-title
+{
+	margin-top: .4em;
+	padding-bottom: .9em;
+	border-bottom: 1px solid #bdc3c7;
+	font-size: 1.2em;
+	color: #34495e;
+	font-family: "Open Sans",sans-serif;
+	"Open Sans"-weight: 700!important;
+}
+.sitetaglist
+{
+	list-style-type: none;
+	display: block;
+	margin-left: 0;
+	text-align: center;
+	margin-bottom: 1.25em;
+	font-size: 0.8em;
+}
+.sitetaglist li
+{
+	display: inline;
+}
+.sitetaglisttitle
+{
+	margin-bottom: .3em;
+}
+h3.post-title>time
+{
+	font-family: "Open Sans",sans-serif;
+	font-weight: 300!important;
+	font-size: .9em;
+}
+.post-title .feature-star
+{
+	font-size: .9em;
+}
+.feature-star,.separator
+{
+	color: #ccc;
+}
+.taglist { color: #ccc }
+.taglist a {
+    background-color: #ccc;
+    color: #fff;
+    display: inline-block;
+    line-height: 110%;
+    padding: .3em .6em;
+    vertical-align: 20%;
+    font-size: .5em;
+    font-weight: 700!important;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-radius: .25em;
+    -moz-border-radius: .25em;
+    -webkit-border-radius: .25em;
+}
+#social-bar
+{
+	margin-top: 1.5em;
+	background-color: #bdc3c7;
+	padding: .5em;
+}
+.pagination
+{
+	margin-bottom: 1em;
+}
+footer a
+{
+	font-weight: 300;
+	color: #161616;
+	text-decoration: underline;
+}
+footer a:hover
+{
+	color: #7f8c8d;
+	text-decoration: none;
+}
+.uk-search
+{
+	display: inline-block;
+	position: relative;
+	margin: 0;
+}
+.uk-search:before
+{
+	content: "\f002";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 1.87em;
+	line-height: 110%;
+	text-align: center;
+	font-family: FontAwesome;
+	font-size: 0.87em;
+	color: #1abc9c;
+}
+.uk-search-field::-moz-focus-inner
+{
+	border: 0;
+	padding: 0;
+}
+.uk-search-field::-webkit-search-cancel-button,.uk-search-field::-webkit-search-decoration
+{
+	-webkit-appearance: none;
+}
+.uk-search-field::-ms-clear
+{
+	display: none;
+}
+.uk-search-field::-moz-placeholder
+{
+	opacity: 1;
+}
+.uk-search-field
+{
+	font-family: "Open Sans",sans-serif;
+	color: #ecf0f1;
+	-webkit-appearance: none;
+	width: 11.25em;
+	height: 1.87em;
+	padding: 0 0 0 1.87em;
+	border: 0;
+	background: rgba(0,0,0,0);
+	-webkit-transition: all linear .2s;
+	transition: all linear .2s;
+	vertical-align: middle;
+}
+.uk-search-field:-ms-input-placeholder
+{
+	color: #95a5a6!important;
+}
+.uk-search-field::-moz-placeholder
+{
+	color: #95a5a6;
+}
+.uk-search-field::-webkit-input-placeholder
+{
+	color: #95a5a6;
+}
+.uk-search-field:focus
+{
+	outline: 0;
+}
+.uk-search-field:focus,.uk-search.uk-active .uk-search-field
+{
+	width: 11.25em;
+}
+.gs-image-box,.gsc-above-wrapper-area,.gsc-cursor-box,.gsc-url-bottom,.gsc-thumbnail,.gs-per-result-labels
+{
+	display: none!important;
+	visibility: hidden!important;
+}
+.gsc-control-cse,.gsc-results
+{
+	font: inherit!important;
+	background: inherit!important;
+	border: inherit!important;
+	padding: inherit!important;
+	margin: inherit!important;
+}
+.gsc-result
+{
+	border: inherit!important;
+	background: inherit!important;
+	padding: inherit!important;
+}
+.gs-title
+{
+	font-family: "Open Sans",sans-serif!important;
+	color: #e74c3c!important;
+	text-decoration: none!important;
+	height: inherit!important;
+	overflow: inherit!important;
+}
+.gs-snippet
+{
+	color: inherit!important;
+	font-family: "Open Sans",sans-serif!important;
+	height: inherit!important;
+	overflow: inherit!important;
+}
+@media only screen and (min-width:1281px)
+{
+	body,html
+	{
+		font-size: 1.1em;
+	};
+}
+@media only screen and (max-width:800px)
+{
+	body
+	{
+		padding: 0;
+	}
+	header
+	{
+		border-right: 0;
+		border-bottom: 1px #bdc3c7 solid;
+		position: relative;
+		height: auto;
+		width: auto;
+		text-align: center;
+		padding-bottom: 1em;
+	}
+	#content
+	{
+		margin-left: 0;
+		padding: 2em 2em 1em;
+		width: auto;
+	}
+	footer
+	{
+		padding: 0 2.5em 2em;
+	};
+}
+@media only screen and (max-width:31.25em)
+{
+	#content,header
+	{
+		padding: 1.2em 1.2em .6em;
+	}
+	footer
+	{
+		padding: 0 1.5em 1.2em;
+	}
+	ol,ul
+	{
+		margin-left: 2em;
+	};
+}
+.section
+{
+	clear: both;
+	padding: 0;
+	margin: 0;
+}
+.col
+{
+	display: block;
+	float: left;
+	margin: 1% 0 1% 1.6%;
+}
+.col:first-child
+{
+	margin-left: 0;
+}
+.group:before,.group:after
+{
+	content: "";
+	display: table;
+}
+.group:after
+{
+	clear: both;
+}
+.group
+{
+	zoom: 1;
+}
+.span_3_of_3
+{
+	width: 100%;
+}
+.span_2_of_3
+{
+	width: 66.13%;
+}
+.span_1_of_3
+{
+	width: 32.26%;
+}
+@media only screen and (max-width: 480px)
+{
+	.col
+	{
+		margin: 1% 0;
+	}
+	.span_3_of_3,.span_2_of_3,.span_1_of_3
+	{
+		width: 100%;
+	};
+}
+@media only screen and (max-height: 550px)
+{
+	.sitetaglist, .sitetaglisttitle
+	{
+		display: none;
+		visibility: hidden;
+	}
+}
+.portfoliobox
+{
+	text-align: center;
+	margin-bottom: 1em;
+}
+.portfoliobox img
+{
+	max-height: 10em;
+}
+.portfoliobox h4
+{
+	margin-top: 0;
+}
+.portfolio-meta
+{
+	margin-bottom: .5em;
+}
+.portfolio-meta > *
+{
+	display: block;
+}
+.portfolio-tag
+{
+	font-weight: 600;
+}
+</style>
+    </head>
+    <body>
+        <header id="header">  
+            <center>        
+            <h1><a href="http://yiyuanli.github.io/site"> YIYUAN LI</a></h1>
+			<p><h6><i>Ph.D.&nbsp Dynamics and Control</p>
+			<p>University of Bristol</p>
+			<p>yiyuan.li@bristol.ac.uk</i></h6></p>
+            <div id="follow-icons">
+	<a href="http://www.bris.ac.uk/engineering/people/yi-yuan-li/overview.html" rel="me"><i class="fa fa-university fa-2x"></i></a>
+	<a href="http://www.researchgate.net/profile/Yiyuan_Li3" rel="me"><i class="fa fa-graduation-cap fa-2x"></i></a> 
+	<a href="https://www.facebook.com/april.yiyuan.li" rel="me"><i class="fa fa-facebook fa-2x"></i></a>
+	<a href="http://github.com/yiyuanli" rel="me"><i class="fa fa-github fa-2x"></i></a>	
+</div>  
+            
+<h3><a href="http://yiyuanli.github.io/site/home">Home</a></h3>
+<h3><a href="http://yiyuanli.github.io/site/about-me">About me</a></h3>
+<h3><a href="http://yiyuanli.github.io/site/academics">Academics</a></h3>
+<h3><a href="http://yiyuanli.github.io/site/posts">Posts</a></h3>
+<h3><a href="http://yiyuanli.github.io/site/arts">Arts</a></h3>
+<script 
+   type="text/javascript" 
+   src="//ra.revolvermaps.com/0/0/8.js?i=0pz05vn75wq&amp;
+   m=0&amp;
+   c=ff0000&amp;
+   cr1=ffffff&amp;
+   f=arial&amp;l=33" 
+   async="async">
+</script>
+        </header>
+<main id="content">
+
+<article id="" class="posts">
+    <h1 class="post-title">基于hugo的静态博客建立及部署在GitHub上</h1>
+        <div class="post-stamp">
+        <time datetime="2017-04-29T10:30:16Z">
+            29 Apr 2017
+        </time>
+        <span class="taglist">
+        
+        </span>
+    </div>
+	<hr />
+	
+
+<h3 id="开始之前"><strong>开始之前：</strong></h3>
+
+<p>（这是一个非程序猿版本的hugo静态博客建立过程记录，我会尽量把每个步骤都认认真真记录下来）。</p>
+
+<p>作为个人博客网站，为什么选择用静态博客呢？以及为什么选择hugo作为静态博客生成器呢？可以参考如下文章：</p>
+
+<p><a href="http://topspeedsnail.com/static-website-generators_or_tools/">11个最流行的静态(博客)网站生成工具</a></p>
+
+<p><a href="https://www.simongong.net/xuan-ze-kun-nan-zheng/">开源静态博客生成器——jekyll、hexo、hugo怎么选？</a></p>
+
+<p>简单概括起来就是：1. 静态博客访问速度快，可以完全托管在GitHub上，不用另外花钱买主机；2. hugo生成静态博客速度非常之快，又比Jekyll构建简单许多（对于我们这些非程序猿们）。</p>
+
+<h3 id="过程记录"><strong>过程记录：</strong></h3>
+
+<p>敲定hugo之后，接下来就是如何用hugo建立博客的问题了：</p>
+
+<ol>
+<li><p>首先简单环境介绍：<br />
+windows 10<br />
+hugo_0.20.6_windows-64bit.zip</p></li>
+
+<li><p>git的一些简单操作命令的含义见： <a href="http://www.ruanyifeng.com/blog/2014/06/git_remote.html">Git远程操作详解</a></p></li>
+
+<li><p>安装hugo，下载地址：<a href="https://github.com/spf13/hugo/releases">https://github.com/spf13/hugo/releases</a><br />
+在本地磁盘上建立文件目录（路径随意，例如）:<code>F:\github\hugo\bin</code>
+把下载下来的hugo.exe二进制程序放进建立的bin文件夹中。
+设置系统环境变量：&rdquo;我的电脑右键——属性——高级系统设置——高级——环境变量&rdquo;,
+选中PATH变量，&rdquo;编辑——新建——F:\github\hugo\bin——确定&rdquo;. 这样PATH环境变量就设置好
+了。然后&rdquo;win+R&rdquo;，输入cmd回车，进入command prompt，输入</p>
+
+<pre><code class="language-hugo">hugo version
+</code></pre>
+
+<p>如果有版本提示，即表示安装成功。</p></li>
+
+<li><p>接下来hugo官方网站上有非常详细的步骤及视频教学：
+<a href="https://gohugo.io/overview/quickstart/">Hugo Quickstart Guide</a>。
+照着一步一步操作。或者另外两个hugo website建立的介绍：<br />
+<a href="http://lucumt.info/posts/create-website-with-hugo/">http://lucumt.info/posts/create-website-with-hugo/</a><br />
+<a href="https://kknews.cc/tech/859ebkq.html">https://kknews.cc/tech/859ebkq.html</a></p></li>
+</ol>
+
+<h3 id="一些补充和自己的理解"><strong>一些补充和自己的理解:</strong></h3>
+
+<ol>
+<li><p>修改baseURL可以直接在cmd命令行中实施，输入</p>
+
+<pre><code>hugo --theme=hyde --baseUrl=&quot;http://yiyuanli.github.io/blog&quot;    
+</code></pre></li>
+
+<li><p>我在实施的过程中发现一个问题，就是在最后面regenerate site的时候，cd ..
+此时应该在blog根目录下：<code>F:\github\hugo\blog.</code> 接着在cmd中输入</p>
+
+<pre><code>hugo --theme=hugo_theme_robust
+</code></pre>
+
+<p>来重新生成静态网页。但接下来应该进入到<code>f:\github\hugo\blog\public</code>目录下</p>
+
+<pre><code class="language-git">git add --all
+git commit -m &quot;some changes&quot;
+git push origin gh-pages 
+</code></pre>
+
+<p>(-f表示 -force，见<a href="http://www.ruanyifeng.com/blog/2014/06/git_remote.html">Git远程操作详解</a>）</p></li>
+
+<li><p>如果部署在GitHub上建立的repository并不是<a href="http://yiyuanli.github.io">http://yiyuanli.github.io</a>, 例如我建立了一个repository <a href="http://yiyuanli.github.io/blog/">http://yiyuanli.github.io/blog/</a>, 则需要将所有的public push到gh-pages branch（分支）里， 而不能push到master branch中。
+至此，就搭建好了一个基于hugo并部署在GitHub上的静态网站，并且可以手动更新。自动更新部分及个性域名设置后补。</p></li>
+</ol>
+
+<h3 id="时间分隔线"><strong>时间分隔线：</strong></h3>
+
+<p>个性域名设置，参考： <a href="http://lucumt.info/posts/create-website-with-hugo/">利用Github Pages和基于Go的Hugo搭建个人博客</a></p>
+
+<p>一些补充和自己的理解：</p>
+
+<ol>
+<li>GitHub的主机IP地址为：<br />
+192.30.252.153<br />
+192.30.252.154<br />
+故只需设置域名的A解析即可，其中point to填写上面两个ip地址，不用ping自己的网址
+ip，参见<a href="https://help.github.com/articles/setting-up-an-apex-domain/">github官网方法</a>。</li>
+</ol>
+
+
+    <div id="comments">
+    
+    
+    
+    
+</div>
+
+</article>
+
+</main>
+		<footer id="footer">
+			<section id="footer-message">
+			<p><center>
+			&copy; Yiyuan Li &nbsp All rights reserved
+			<p>
+			<p><center>
+			Powered by <a href="http://gohugo.io" target="_blank">Hugo</a>
+			<a href="https://github.com/kathyqian/crisp-ghost-theme" target="_blank">Crisp</a>
+			<p>
+			</section>
+		</footer>
+
+   <script>
+      (function(c,f){asyncLoader=function(i,h){i.foreach(function(k,j){e(j,d(j),h)});if(typeof h.callback=="function"){var g=setInterval(function(){if(f.readyState==="complete"){clearInterval(g);h.callback()}},10)}};var d=function(g){var h=g.split(".");return h[h.length-1]},e=function(h,i,g){switch(i){case"js":a(h,g);break;case"css":b(h);break;default:break}},a=function(i,h){var g=document.createElement("script");g.type="text/javascript";g.async=true;g.src=i;document.getElementsByTagName("head")[0].appendChild(g)},b=function(g){var h=document.createElement("link");h.type="text/css";h.rel="stylesheet";h.href=g;document.getElementsByTagName("head")[0].appendChild(h)};Array.prototype.foreach=function(h){for(var g=0;g<this.length;g++){h(g,this[g])}}})(this,document);
+
+      var WebFontConfig={google:{families:["Open Sans:300italic,700italic,300,700","Bree+Serif"]}};
+      asyncLoader([
+        "//netdna.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.css",
+        "//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js",
+        "//cdnjs.cloudflare.com/ajax/libs/webfont/1.5.16/webfontloader.js",
+        "//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/highlight.min.js"
+      ],{
+        callback:function(){
+          asyncLoader([
+            "http:\/\/yiyuanli.github.io\/sitecss/rrssb.css",
+            "http:\/\/yiyuanli.github.io\/sitejs/gist.min.js", 
+            "http:\/\/yiyuanli.github.io\/sitejs/rrssb.min.js",
+            "//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/styles/default.min.css"
+          ], { callback:function() {
+              hljs.initHighlighting();
+          }});
+        }
+      });
+    </script>
+	
+	</body>
+</html>
+

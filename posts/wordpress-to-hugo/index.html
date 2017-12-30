@@ -1,0 +1,770 @@
+
+<!DOCTYPE html>
+<html lang="en-us">
+
+    <head>
+
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+        <meta property="og:title" content=" wordpress转hugo，并托管在GitHub上 &middot;  YIYUAN LI" />
+        <meta property="og:site_name" content="YIYUAN LI" />
+        <meta property="og:url" content="http://yiyuanli.github.io/site/posts/wordpress-to-hugo/" />
+
+    
+        <meta property="og:type" content="article" />
+        <meta property="og:article:published_time" content="2017-10-15T10:30:16Z" />
+        
+
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:site" content="@" />
+        <meta name="twitter:creator" content="@" />
+        <meta name="twitter:title" content="wordpress转hugo，并托管在GitHub上" />
+        <meta name="twitter:description" content="" />
+        <meta name="twitter:url" content="http://yiyuanli.github.io/site/posts/wordpress-to-hugo/" />
+    
+
+        <title> wordpress转hugo，并托管在GitHub上 &middot;  YIYUAN LI</title>
+
+    
+        <meta name="description" content="" />
+    
+        
+        <meta name="p:domain_verify" content="fc173d84e3a4de948ed4bda2908afd3e"/>
+        <meta name="HandheldFriendly" content="True" />
+        <meta name="MobileOptimized" content="320" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        
+          
+
+    
+        <link href="http://yiyuanli.github.io/siteindex.xml" rel="alternate" type="application/rss+xml" title="YIYUAN LI" />
+    
+
+    
+        <link rel="canonical" href="http://yiyuanli.github.io/site/posts/wordpress-to-hugo/" />
+
+    
+    <script type="application/ld+json">
+    { 
+        "@context": "http://schema.org",
+        "@type": "Article",
+        "headline": "wordpress转hugo，并托管在GitHub上",
+        "author": {
+            "@type": "Person",
+            "name": "http://profiles.google.com/?rel=author"
+        },
+        "datePublished": "2017-10-15",
+        "description": "",
+        "wordCount": 79
+    }
+    </script>
+    
+    
+    <style>
+*
+{
+	padding: 0;
+	margin: 0;
+}
+body,html
+{
+	font-size: 1em;
+	line-height: 150%;
+    font-family:"Open Sans",sans-serif;
+    font-weight:300;
+	color:#161616;
+	background-color: #ffffff;
+}
+html
+{
+	height: 110%;
+}
+body
+{
+	padding: 4em 5em 1em 21em; !above right bottom left;
+}
+header
+{
+	border-right:1px #eee solid;
+	padding: 2em;
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 12em;
+	background-color: #161616;
+	color: #9b9b9b;
+}
+#content
+{
+	display: block;
+	width: 100%;
+}
+footer
+{
+	padding: 1em 0 2.5em;
+	font-size: .8em;
+	line-height: 110%;
+	color: #333333;
+}
+article
+{
+	border-bottom: .1em #eaeaea solid;
+	padding-bottom: 1.7em;
+	max-width: 56em;
+}
+h4,h5,h6,hr,p
+{
+	margin-top: 1em;
+	margin-bottom: 1em;
+}
+h1,h2,h3,h4,h5,h6
+{
+	font-family:"Bree Serif",serif;
+    font-weight:400!important
+}
+
+h1                   
+{
+	font-size: 2.5em;
+	line-height: 110%;
+	margin-top: 1em;
+	margin-bottom: 1em;
+}
+h2
+{
+	font-size: 1.9em;
+	line-height: 110%;
+	margin-top: .7em;
+	margin-bottom: .7em;
+}
+h3
+{
+	font-size: 1.5em;
+	line-height: 110%;
+	margin-top: 0.5em;
+	margin-bottom: .5em;
+}
+h4
+{
+	font-size: 1.3em;
+}
+h5
+{
+	font-size: 1.2em;
+}
+h6
+{
+	font-size: 0.9em;
+	line-height: 110%;
+	margin-top: 0.2em;
+	margin-left:0em;
+}
+iframe,img
+{
+	max-width: 100%;
+}
+a
+{
+	font-weight: 700;
+	text-decoration:none;
+	color: #161616;
+}
+a:hover
+{
+	text-decoration: underline;
+}
+h1 a,h2 a,h3 a,h4 a,h5 a,h6 a
+{
+	font-weight: 400;
+}
+strong
+{
+	font-weight: 700;
+}
+blockquote
+{
+	border-left: .4em solid #bdc3c7;
+	padding-left: 1.2em;
+	！font-size: 1.3em;
+}
+hr
+{
+	border: 0;
+	height: 1.5px;
+	background: #161616;
+}
+ol,ul
+{
+	margin-left: 3em;
+}
+code                    
+{
+	font-size: 1.2em;
+	!background: #f0f0f0;
+}
+pre                     
+{
+	font-size: 1em;
+	line-height: 130%;
+	!background: #f0f0f0;
+	padding: 1em;
+	word-break: break-all;
+	word-wrap: break-word;
+	white-space: pre;
+	white-space: -moz-pre-wrap;
+	white-space: pre-wrap;
+} 
+input
+{
+	font-size: 1em;
+	padding: .3em;
+}
+header h1      
+{
+	margin-top: 0.5em;
+	margin-bottom: 0.2em;
+}
+header h3
+{
+	font-size: 1.4em;
+	line-height: 1.1em;
+	margin-top: 1em;
+	margin-bottom: .1em;
+}
+header a
+{
+	color: #f4f4f4;
+}
+header a:hover
+{
+	color: #309ff2;
+    text-decoration: none;
+}
+header #logo img
+{
+	width: 9em;
+	height: 9em;
+	border-radius: 4.5em;
+	-moz-border-radius: 4.5em;
+	-webkit-border-radius: 4.5em;
+	border: 0;
+}
+#follow-icons
+{
+	font-size: .6em;
+	margin-top: 2em;
+	margin-bottom: 1.5em;
+}
+#follow-icons a
+{
+	color: #ccc;
+	margin-right: 0.6em;
+}
+#follow-icons a:hover
+{
+	color: #309ff2;
+}
+#follow-icons span
+{
+	vertical-align: top;
+	margin-left: -.15em;
+	margin-right: -.15em;
+}
+#follow-icons span .fa-stack-1x
+{
+	font-size: 1.05em;
+	line-height: 100%;
+}
+header h6
+{
+	margin-top: 2em;
+	line-height: 0.7em;
+}
+article span.post-stamp
+{
+	color: #888;
+}
+h1.post-title
+{
+	margin-top: 0.2em;
+	margin-bottom: .5em;
+}
+h2.post-title
+{
+	margin-top: .35em;
+	margin-bottom: .6em;
+}
+h3.post-title
+{
+	margin-top: .4em;
+	padding-bottom: .9em;
+	border-bottom: 1px solid #bdc3c7;
+	font-size: 1.2em;
+	color: #34495e;
+	font-family: "Open Sans",sans-serif;
+	"Open Sans"-weight: 700!important;
+}
+.sitetaglist
+{
+	list-style-type: none;
+	display: block;
+	margin-left: 0;
+	text-align: center;
+	margin-bottom: 1.25em;
+	font-size: 0.8em;
+}
+.sitetaglist li
+{
+	display: inline;
+}
+.sitetaglisttitle
+{
+	margin-bottom: .3em;
+}
+h3.post-title>time
+{
+	font-family: "Open Sans",sans-serif;
+	font-weight: 300!important;
+	font-size: .9em;
+}
+.post-title .feature-star
+{
+	font-size: .9em;
+}
+.feature-star,.separator
+{
+	color: #ccc;
+}
+.taglist { color: #ccc }
+.taglist a {
+    background-color: #ccc;
+    color: #fff;
+    display: inline-block;
+    line-height: 110%;
+    padding: .3em .6em;
+    vertical-align: 20%;
+    font-size: .5em;
+    font-weight: 700!important;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-radius: .25em;
+    -moz-border-radius: .25em;
+    -webkit-border-radius: .25em;
+}
+#social-bar
+{
+	margin-top: 1.5em;
+	background-color: #bdc3c7;
+	padding: .5em;
+}
+.pagination
+{
+	margin-bottom: 1em;
+}
+footer a
+{
+	font-weight: 300;
+	color: #161616;
+	text-decoration: underline;
+}
+footer a:hover
+{
+	color: #7f8c8d;
+	text-decoration: none;
+}
+.uk-search
+{
+	display: inline-block;
+	position: relative;
+	margin: 0;
+}
+.uk-search:before
+{
+	content: "\f002";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 1.87em;
+	line-height: 110%;
+	text-align: center;
+	font-family: FontAwesome;
+	font-size: 0.87em;
+	color: #1abc9c;
+}
+.uk-search-field::-moz-focus-inner
+{
+	border: 0;
+	padding: 0;
+}
+.uk-search-field::-webkit-search-cancel-button,.uk-search-field::-webkit-search-decoration
+{
+	-webkit-appearance: none;
+}
+.uk-search-field::-ms-clear
+{
+	display: none;
+}
+.uk-search-field::-moz-placeholder
+{
+	opacity: 1;
+}
+.uk-search-field
+{
+	font-family: "Open Sans",sans-serif;
+	color: #ecf0f1;
+	-webkit-appearance: none;
+	width: 11.25em;
+	height: 1.87em;
+	padding: 0 0 0 1.87em;
+	border: 0;
+	background: rgba(0,0,0,0);
+	-webkit-transition: all linear .2s;
+	transition: all linear .2s;
+	vertical-align: middle;
+}
+.uk-search-field:-ms-input-placeholder
+{
+	color: #95a5a6!important;
+}
+.uk-search-field::-moz-placeholder
+{
+	color: #95a5a6;
+}
+.uk-search-field::-webkit-input-placeholder
+{
+	color: #95a5a6;
+}
+.uk-search-field:focus
+{
+	outline: 0;
+}
+.uk-search-field:focus,.uk-search.uk-active .uk-search-field
+{
+	width: 11.25em;
+}
+.gs-image-box,.gsc-above-wrapper-area,.gsc-cursor-box,.gsc-url-bottom,.gsc-thumbnail,.gs-per-result-labels
+{
+	display: none!important;
+	visibility: hidden!important;
+}
+.gsc-control-cse,.gsc-results
+{
+	font: inherit!important;
+	background: inherit!important;
+	border: inherit!important;
+	padding: inherit!important;
+	margin: inherit!important;
+}
+.gsc-result
+{
+	border: inherit!important;
+	background: inherit!important;
+	padding: inherit!important;
+}
+.gs-title
+{
+	font-family: "Open Sans",sans-serif!important;
+	color: #e74c3c!important;
+	text-decoration: none!important;
+	height: inherit!important;
+	overflow: inherit!important;
+}
+.gs-snippet
+{
+	color: inherit!important;
+	font-family: "Open Sans",sans-serif!important;
+	height: inherit!important;
+	overflow: inherit!important;
+}
+@media only screen and (min-width:1281px)
+{
+	body,html
+	{
+		font-size: 1.1em;
+	};
+}
+@media only screen and (max-width:800px)
+{
+	body
+	{
+		padding: 0;
+	}
+	header
+	{
+		border-right: 0;
+		border-bottom: 1px #bdc3c7 solid;
+		position: relative;
+		height: auto;
+		width: auto;
+		text-align: center;
+		padding-bottom: 1em;
+	}
+	#content
+	{
+		margin-left: 0;
+		padding: 2em 2em 1em;
+		width: auto;
+	}
+	footer
+	{
+		padding: 0 2.5em 2em;
+	};
+}
+@media only screen and (max-width:31.25em)
+{
+	#content,header
+	{
+		padding: 1.2em 1.2em .6em;
+	}
+	footer
+	{
+		padding: 0 1.5em 1.2em;
+	}
+	ol,ul
+	{
+		margin-left: 2em;
+	};
+}
+.section
+{
+	clear: both;
+	padding: 0;
+	margin: 0;
+}
+.col
+{
+	display: block;
+	float: left;
+	margin: 1% 0 1% 1.6%;
+}
+.col:first-child
+{
+	margin-left: 0;
+}
+.group:before,.group:after
+{
+	content: "";
+	display: table;
+}
+.group:after
+{
+	clear: both;
+}
+.group
+{
+	zoom: 1;
+}
+.span_3_of_3
+{
+	width: 100%;
+}
+.span_2_of_3
+{
+	width: 66.13%;
+}
+.span_1_of_3
+{
+	width: 32.26%;
+}
+@media only screen and (max-width: 480px)
+{
+	.col
+	{
+		margin: 1% 0;
+	}
+	.span_3_of_3,.span_2_of_3,.span_1_of_3
+	{
+		width: 100%;
+	};
+}
+@media only screen and (max-height: 550px)
+{
+	.sitetaglist, .sitetaglisttitle
+	{
+		display: none;
+		visibility: hidden;
+	}
+}
+.portfoliobox
+{
+	text-align: center;
+	margin-bottom: 1em;
+}
+.portfoliobox img
+{
+	max-height: 10em;
+}
+.portfoliobox h4
+{
+	margin-top: 0;
+}
+.portfolio-meta
+{
+	margin-bottom: .5em;
+}
+.portfolio-meta > *
+{
+	display: block;
+}
+.portfolio-tag
+{
+	font-weight: 600;
+}
+</style>
+    </head>
+    <body>
+        <header id="header">  
+            <center>        
+            <h1><a href="http://yiyuanli.github.io/site"> YIYUAN LI</a></h1>
+			<p><h6><i>Ph.D.&nbsp Dynamics and Control</p>
+			<p>University of Bristol</p>
+			<p>yiyuan.li@bristol.ac.uk</i></h6></p>
+            <div id="follow-icons">
+	<a href="http://www.bris.ac.uk/engineering/people/yi-yuan-li/overview.html" rel="me"><i class="fa fa-university fa-2x"></i></a>
+	<a href="http://www.researchgate.net/profile/Yiyuan_Li3" rel="me"><i class="fa fa-graduation-cap fa-2x"></i></a> 
+	<a href="https://www.facebook.com/april.yiyuan.li" rel="me"><i class="fa fa-facebook fa-2x"></i></a>
+	<a href="http://github.com/yiyuanli" rel="me"><i class="fa fa-github fa-2x"></i></a>	
+</div>  
+            
+<h3><a href="http://yiyuanli.github.io/site/home">Home</a></h3>
+<h3><a href="http://yiyuanli.github.io/site/about-me">About me</a></h3>
+<h3><a href="http://yiyuanli.github.io/site/academics">Academics</a></h3>
+<h3><a href="http://yiyuanli.github.io/site/posts">Posts</a></h3>
+<h3><a href="http://yiyuanli.github.io/site/arts">Arts</a></h3>
+<script 
+   type="text/javascript" 
+   src="//ra.revolvermaps.com/0/0/8.js?i=0pz05vn75wq&amp;
+   m=0&amp;
+   c=ff0000&amp;
+   cr1=ffffff&amp;
+   f=arial&amp;l=33" 
+   async="async">
+</script>
+        </header>
+<main id="content">
+
+<article id="" class="posts">
+    <h1 class="post-title">wordpress转hugo，并托管在GitHub上</h1>
+        <div class="post-stamp">
+        <time datetime="2017-10-15T10:30:16Z">
+            15 Oct 2017
+        </time>
+        <span class="taglist">
+        
+        </span>
+    </div>
+	<hr />
+	
+
+<p>在转之前我发现网上很少有介绍word press转hugo的中文文章，大多数都是
+word press转hexokinase或者Jekyll。 但是由上篇文章总结来看hugo目前是
+最适合静态网页生成器，故总结在此作为大家参考。</p>
+
+<p>wordpress动态网页转hugo静态网页并托管在GitHub上一共可以分成三步：</p>
+
+<ol>
+<li>在本地建立hugo site；<br /></li>
+<li>把wordpress内容转为markdown格式并放入本地hugo site中；<br /></li>
+<li>把已经放好转出内容的hugo site 部署到GitHub上。</li>
+</ol>
+
+<p>每步之间几乎是相互独立，互不影响。每个步骤都可以单独完成，如果想把wordpress
+转hexo或者Jekyll，或者要把hugo静态网页托管在GitHub上，都可以参考此篇文章。</p>
+
+<h3 id="下面开始正文"><strong>下面开始正文：</strong></h3>
+
+<ol>
+<li>在本地建立一个hugo site，参见上篇博客（基于hugo的静态博客建立及部署在GitHub上）</li>
+
+<li><p>这一步是花费了我最长时间的一部，因为有两个wordpress转出工具——wordpress-to-hugo-exporter和Exitwp，两个我都有尝试，但是中间都遇到了一些问题，最终我用Exitwp解决了wordpress转出问题，下面就是详细过程.</p>
+
+<p>2.1. 导出word press文件：需要在wordpress/admin界面Tools-Export中把自己本来wordpress里的所有内容导出为xml文件。</p>
+
+<p>2.2. 我们用<a href="https://github.com/thomasf/exitwp">Exitwp</a>这个工具把xml文件转为markdown文件。下载<a href="https://github.com/thomasf/exitwp.git">Exitwp</a>，然后把所有的xml文件都放在解压了的Exitwp文件夹里的word press-xml目录下；</p>
+
+<p>2.3. 进行下部之前，我们需要安装五个software，分别是</p>
+
+<ul>
+<li><a href="https://www.python.org/">python 2.7</a>，记得安装完之后要在环境变量-path中添加python，只有添加path之后才可以在cmd中运行python命令，否则后面几步运行会报错；</li>
+<li><a href="http://www.aaronsw.com/2002/html2text/">html2text</a>: 把html文件转为markdown文件（python编写）。参照指示，点击download之后直接把code拷贝下来建在一个新txt文档里并命名为html2text.py就行，这里是我建好的.py文件；<br /></li>
+
+<li><p><a href="http://pyyaml.org/wiki/PyYAML">PyYAML</a>：Reading configuration files and writing YAML headers（python编写）（这里是英文解释，有点难翻译，也不太懂什么意思）。下载安装包，然后直接在命令符中输入</p>
+
+<pre><code>python setup.py install
+</code></pre></li>
+
+<li><p><a href="https://www.crummy.com/software/BeautifulSoup/">beautiful soup</a>：运行和下载wordpress posts 中的图片（也是python编写），下载4.6.0版本，然后在cmd中输入</p>
+
+<pre><code>pip install beautifulsoup4
+</code></pre>
+
+<p>运行，然后beautifulsoup4.6.0就安装在python27\lib\site-packages目录下了；</p></li>
+
+<li><p><a href="http://xmlsoft.org/downloads.html">xmllint</a>：xmllint是一个处理及验证xml的工。Linux下只要安装libxml2就可以使用了，但是在Windows下就要麻烦很多。这一步也是很烦人的一部，因为官网上的指示一点都不清楚，可能针对linux系统比较详细吧，反正Windows系统非常不详细。所以我搜了很久才找到正确安装方法（可以参考<a href="http://flowingmotion.jojordan.org/2011/10/08/3-steps-to-download-xmllint/">这篇文章</a>来安装xmllint.
+首先找到<a href="http://xmlsoft.org/sources/win32/">xmllint windows下载包</a>，下载同一版本的libxml2，libxslt，iconv，zlib这四个zipfiles，解压，然后打开这四个文件bin目录，把四个bin文件里的东西全部复制到一个新的命名为bin的文件夹里，这个新的bin文件夹放在C盘下，然后将这个bin添加进环境变量path中。这样，xmllint就算是安装好了。</p></li>
+</ul>
+
+<p>2.4.在安装好了所有上述东西之后，在cmd中就最终可以输入$ xmllint &hellip;xml 命令了。我的xml文件是yiyuanli.wordpress.2017-10-04.xml,所以我就直接输入$ xmllint yiyuanli.wordpress.2017-10-04.xml,然后回车运行，（可能会提示有一些错误或者转化不完整，没关系，到时候可以在已经转好的markdown文件中修改），然后在exitwp/build/jekyll中就可以找到转出来的markdown文件们了，终于大功告成！xml文件成功转为markdown！</p>
+
+<p>2.5. 把转好的markdown文件复制到本地hugo site中的content目录下，然后在cmd中hugo site目录下运行 $ hugo server &ndash;theme=hugo-theme-crisp，然后网页输入localhost：1313就可以看到以前word press的post已经都移到hugo site中啦~~~</p></li>
+
+<li><p>在cmd中hugo site目录下运行</p>
+
+<pre><code>hugo –-theme=hugo-theme-crisp –-baseUrl=“http://yiyuanli.github.io/site”
+</code></pre>
+
+<p>然后将生成的public目录下的所有文件都复制到GitHub的新建的repository master 分支下就可以啦，如果想在cmd中直接用git命令也可以，不过如果你都会用git命令，那一定可以成功将public中的所有文件上传repository中。我用的是特别蠢的办法，适用大白小白非程序猿们，直接把public中的文件拖到master分支中，就完成啦，就可以在自己的github网页上看到生成的静态网页啦！（注意，不是需要把hugo stie下的所有文件都push到github repository中去，只要有public文件夹下的内容就足够了，不过可以新建另外一个repository储存其他文件夹，毕竟<strong>存档</strong>是很重要的一件事，不然后面哪里出了小错有可能就要把前面<strong>所有步骤都重新来一遍了!!!</strong></p></li>
+</ol>
+
+
+    <div id="comments">
+    
+    
+    
+    
+</div>
+
+</article>
+
+</main>
+		<footer id="footer">
+			<section id="footer-message">
+			<p><center>
+			&copy; Yiyuan Li &nbsp All rights reserved
+			<p>
+			<p><center>
+			Powered by <a href="http://gohugo.io" target="_blank">Hugo</a>
+			<a href="https://github.com/kathyqian/crisp-ghost-theme" target="_blank">Crisp</a>
+			<p>
+			</section>
+		</footer>
+
+   <script>
+      (function(c,f){asyncLoader=function(i,h){i.foreach(function(k,j){e(j,d(j),h)});if(typeof h.callback=="function"){var g=setInterval(function(){if(f.readyState==="complete"){clearInterval(g);h.callback()}},10)}};var d=function(g){var h=g.split(".");return h[h.length-1]},e=function(h,i,g){switch(i){case"js":a(h,g);break;case"css":b(h);break;default:break}},a=function(i,h){var g=document.createElement("script");g.type="text/javascript";g.async=true;g.src=i;document.getElementsByTagName("head")[0].appendChild(g)},b=function(g){var h=document.createElement("link");h.type="text/css";h.rel="stylesheet";h.href=g;document.getElementsByTagName("head")[0].appendChild(h)};Array.prototype.foreach=function(h){for(var g=0;g<this.length;g++){h(g,this[g])}}})(this,document);
+
+      var WebFontConfig={google:{families:["Open Sans:300italic,700italic,300,700","Bree+Serif"]}};
+      asyncLoader([
+        "//netdna.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.css",
+        "//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js",
+        "//cdnjs.cloudflare.com/ajax/libs/webfont/1.5.16/webfontloader.js",
+        "//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/highlight.min.js"
+      ],{
+        callback:function(){
+          asyncLoader([
+            "http:\/\/yiyuanli.github.io\/sitecss/rrssb.css",
+            "http:\/\/yiyuanli.github.io\/sitejs/gist.min.js", 
+            "http:\/\/yiyuanli.github.io\/sitejs/rrssb.min.js",
+            "//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/styles/default.min.css"
+          ], { callback:function() {
+              hljs.initHighlighting();
+          }});
+        }
+      });
+    </script>
+	
+	</body>
+</html>
+
