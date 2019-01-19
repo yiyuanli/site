@@ -1,0 +1,1 @@
+This is a repository that stores the public folder of a hugo website.
