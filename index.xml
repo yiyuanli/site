@@ -133,6 +133,28 @@ Paintings</description>
     </item>
     
     <item>
+      <title>Arts</title>
+      <link>http://yiyuanli.github.io/site/arts/arts/</link>
+      <pubDate>Tue, 22 Nov 2016 06:25:21 +0000</pubDate>
+      
+      <guid>http://yiyuanli.github.io/site/arts/arts/</guid>
+      <description>photographs
+paintings</description>
+    </item>
+    
+    <item>
+      <title>Academics</title>
+      <link>http://yiyuanli.github.io/site/academic/academic/</link>
+      <pubDate>Tue, 22 Nov 2016 06:24:23 +0000</pubDate>
+      
+      <guid>http://yiyuanli.github.io/site/academic/academic/</guid>
+      <description>My current research focuses on: Direct model updating method using incomplete modal measurements based on system control theory.
+After applying this new method, the updated Finite Element (FE) model can reproduce the measured modal frequencies exactly without disturbing the unmeasured modal frequencies.
+Academics
+At first, a 960 degree-of-freedom (DOF) FE model was used to illustrate the efficiency of this method. The following figures are the first 10 mode shapes of the updated FE model.</description>
+    </item>
+    
+    <item>
       <title>Academics</title>
       <link>http://yiyuanli.github.io/site/academics/</link>
       <pubDate>Tue, 22 Nov 2016 06:24:23 +0000</pubDate>
@@ -142,6 +164,20 @@ Paintings</description>
 After applying this new method, the updated Finite Element (FE) model can reproduce the measured modal frequencies exactly without disturbing the unmeasured modal frequencies.
 Academics
 At first, a 960 degree-of-freedom (DOF) FE model was used to illustrate the efficiency of this method. The following figures are the first 10 mode shapes of the updated FE model.</description>
+    </item>
+    
+    <item>
+      <title>About Me</title>
+      <link>http://yiyuanli.github.io/site/about-me/aboutme/</link>
+      <pubDate>Sun, 20 Nov 2016 01:54:31 +0000</pubDate>
+      
+      <guid>http://yiyuanli.github.io/site/about-me/aboutme/</guid>
+      <description>How happy is the blameless vestal’s lot!
+The world forgetting, by the world forgot.
+Eternal sunshine of the spotless mind!
+Each pray’r accepted, and each wish resign’d.
+—Alexander Pope
+ After graduated from high school, I chose Applied Chemistry as my major in South China Agricultural University by accident. However, when I actually had the chance to get to know chemistry at university, I realized it was not what I want at all.</description>
     </item>
     
     <item>
@@ -164,6 +200,16 @@ Each pray’r accepted, and each wish resign’d.
       <pubDate>Sat, 19 Nov 2016 09:54:08 +0000</pubDate>
       
       <guid>http://yiyuanli.github.io/site/home/</guid>
+      <description>Welcome to Yi-Yuan’s Website!
+Home Home Home Home Home My name is Yi-Yuan Li, a Civil Engineering M.Sc student at University of Macau, specializing in Structural Engineering. I am working in Dynamics &amp;amp; Monitoring laboratory under the supervision of Prof. Ka-Veng Yuen. My study interests: Structural Dynamics; Model Updating; Vibration Control; Structural Health Monitoring; System Identification; Modal Analysis; Earthquake Engineering. I’m ready to learn more about them any time! My skills: Matlab; Fortran My Curriculum Vitae My Statement of Interest</description>
+    </item>
+    
+    <item>
+      <title>Home</title>
+      <link>http://yiyuanli.github.io/site/home/home/</link>
+      <pubDate>Sat, 19 Nov 2016 09:54:08 +0000</pubDate>
+      
+      <guid>http://yiyuanli.github.io/site/home/home/</guid>
       <description>Welcome to Yi-Yuan’s Website!
 Home Home Home Home Home My name is Yi-Yuan Li, a Civil Engineering M.Sc student at University of Macau, specializing in Structural Engineering. I am working in Dynamics &amp;amp; Monitoring laboratory under the supervision of Prof. Ka-Veng Yuen. My study interests: Structural Dynamics; Model Updating; Vibration Control; Structural Health Monitoring; System Identification; Modal Analysis; Earthquake Engineering. I’m ready to learn more about them any time! My skills: Matlab; Fortran My Curriculum Vitae My Statement of Interest</description>
     </item>

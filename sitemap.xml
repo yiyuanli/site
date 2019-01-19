@@ -48,8 +48,23 @@
   </url>
   
   <url>
+    <loc>http://yiyuanli.github.io/site/arts/arts/</loc>
+    <lastmod>2016-11-22T06:25:21+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yiyuanli.github.io/site/academic/academic/</loc>
+    <lastmod>2016-11-22T06:24:23+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://yiyuanli.github.io/site/academics/</loc>
     <lastmod>2016-11-22T06:24:23+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yiyuanli.github.io/site/about-me/aboutme/</loc>
+    <lastmod>2016-11-20T01:54:31+00:00</lastmod>
   </url>
   
   <url>
@@ -63,8 +78,31 @@
   </url>
   
   <url>
+    <loc>http://yiyuanli.github.io/site/home/home/</loc>
+    <lastmod>2016-11-19T09:54:08+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://yiyuanli.github.io/site/home-2/home-2/</loc>
     <lastmod>2016-11-18T05:51:48+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yiyuanli.github.io/site/about-me/</loc>
+    <lastmod>2016-11-20T01:54:31+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://yiyuanli.github.io/site/academic/</loc>
+    <lastmod>2016-11-22T06:24:23+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://yiyuanli.github.io/site/arts/</loc>
+    <lastmod>2016-11-22T06:25:21+00:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -75,6 +113,12 @@
   <url>
     <loc>http://yiyuanli.github.io/site/home-2/</loc>
     <lastmod>2016-11-18T05:51:48+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://yiyuanli.github.io/site/home/</loc>
+    <lastmod>2016-11-19T09:54:08+00:00</lastmod>
     <priority>0</priority>
   </url>
   
